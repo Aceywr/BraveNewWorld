@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AJAX</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		var xmlHttp
+		function show(str){
+			xmlHttp = new XMLHttpRequest();
+			var url = "ajax.php";
+			url =url + "?q=" + str;
+			url=url+"&sid="+Math.random();
+			xmlHttp.onreadystatechange = function(){
+				if (xmlHttp.readyState==4 && xmlHttp.status==200) {
+					document.getElementById('mydiv').innerHTML = xmlHttp.responseText;
+				}
+			};
+			xmlHttp.open("GET", url, true);
+			xmlHttp.send(null);
+
+		
+		
+		}
+	</script>
+</head>
+<body>
+	<button type="button" onclick="show(this.value)" value="1">1</button>
+	<button type="button" onclick="show(this.value)" value="2">2</button>
+	<button type="button" onclick="show(this.value)" value="3">3</button>
+	<button type="button" onclick="show(this.value)" value="4">4</button>
+	<div id="mydiv">there</div>
+</body>
+</html>

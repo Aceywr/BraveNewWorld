@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>简易文本编辑器</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div>
+		<input type="button" value="blue" onclick="document.execCommand('ForeColor', false, '#0000ff')"></input>
+		<input type="button" value="Bold" onclick="document.execCommand('Bold', false, null)"></input>
+		<input type="button" value="Topic" onclick="document.execCommand('FontSize', false, 6)"></input>
+	</div>
+	<div id="editArea" contenteditable style="height: 200px;width: 600px;border:1px solid #ccc;">
+		<h1>标题写在这里</h1>
+		<p>正文写在这里</p>
+		</div>
+	<div>
+		<input type="button" value="↓" onclick="htmlsource.value = editArea.innerHTML;"></input>
+		<input type="button" value="↑" onclick="editArea.innerHTML = htmlsource.value;"></input>
+	</div>
+	<div>
+		<textarea id="htmlsource" name="htmlsource" cols="70" rows="10" >请在这里写下来</textarea>
+	</div>
+</body>
+</html>
